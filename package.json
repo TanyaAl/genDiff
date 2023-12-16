@@ -14,5 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
   }
 }
