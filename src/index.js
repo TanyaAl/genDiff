@@ -17,7 +17,7 @@ const gendiff = (filepath1, filepath2, format = 'utf-8') => {
     const data1 = getParsedData(file1, extname1);
     const data2 = getParsedData(file2, extname2);
 
-    return [data1, data2];
+    return [file1, file2];
 }
 
 export default gendiff;
