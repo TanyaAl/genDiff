@@ -1,14 +1,15 @@
-import { readFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
+import { cwd } from 'process';
 import path from 'path';
 import getParsedData from './utils.js';
 
-const getPath = (file) => path.resolve(file);
+const getPath = (file) => path.resolve(cwd().file);
 const getExtname = (file) => path.extname(file);
 
 const gendiff = (filepath1, filepath2, format = 'utf-8') => {
 
-    const file1 = readFile(getPath(filepath1), 'utf-8');
-    const file2 = readFile(getPath(filepath2), 'utf-8');
+    const file1 = readFileSync(getPath(filepath1), 'utf-8');
+    const file2 = readFileSync(getPath(filepath2), 'utf-8');
 
     const extname1 = getExtname(filepath1);
     const extname2 = getExtname(filepath2);
