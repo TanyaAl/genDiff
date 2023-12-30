@@ -3,7 +3,7 @@ import { cwd } from 'process';
 import path from 'path';
 import getParsedData from './utils.js';
 
-const getPath = (file) => path.resolve(cwd().file);
+const getPath = (file) => path.resolve(cwd(), file);
 const getExtname = (file) => path.extname(file);
 
 const gendiff = (filepath1, filepath2, format = 'utf-8') => {
