@@ -1,15 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { cwd } from 'process';
 import path from 'path';
-import getParsedData from './utils.js';
+import { getParsedData, compare } from './utils.js';
 
 const getPath = (file) => path.resolve(cwd(), file);
 const getExtname = (file) => path.extname(file);
 
 const gendiff = (filepath1, filepath2, format = 'utf-8') => {
 
-    const file1 = readFileSync(getPath(filepath1), 'utf-8');
-    const file2 = readFileSync(getPath(filepath2), 'utf-8');
+    const file1 = readFileSync(getPath(filepath1), format);
+    const file2 = readFileSync(getPath(filepath2), format);
 
     const extname1 = getExtname(filepath1);
     const extname2 = getExtname(filepath2);
@@ -17,7 +17,14 @@ const gendiff = (filepath1, filepath2, format = 'utf-8') => {
     const data1 = getParsedData(file1, extname1);
     const data2 = getParsedData(file2, extname2);
 
-    return [file1, file2];
+    // const toString1 = stringify(data1);
+    // const toString2 = stringify(data2);
+    // console.log(data1);
+    // console.log(data2);
+
+    const compareData = compare(data1, data2);
+
+    return compareData;
 }
 
 export default gendiff;
@@ -38,3 +45,7 @@ export default gendiff;
 //     } DONE
 //     3) результат: const obj1 = { ...}, const obj2 = { ...} данные переведены из 
 //     json в понятный для js формат объекта и он может с ними работать
+const file1 = 'fixtures/file1.json';
+const file2 = 'fixtures/file2.json';
+
+gendiff(file1, file2);
