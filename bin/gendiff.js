@@ -9,6 +9,6 @@ program
   .helpOption('-h, --help', 'output usage information')
   .option('-f, --format <type>', 'output format')
   .action((filepath1, filepath2, option) => {
-    console.log(gendiff(filepath1, filepath2, option.format))
-  })
+    console.log(gendiff(filepath1, filepath2, option.format));
+  });
 program.parse();

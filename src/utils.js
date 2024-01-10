@@ -33,26 +33,43 @@ const getParsedData = (data, extname) => {
 const compare = (data1, data2) => {
   const entries1 = Object.keys(data1);
   const entries2 = Object.keys(data2);
-  const unionEntries = _.sortBy(entries1.concat(entries2));
+  const unionEntries = _.sortBy([...new Set([...entries1, ...entries2])]);
   const result = unionEntries.reduce((acc, key) => {
-    if (!data1.hasOwnProperty(key)) {
+    let data1Ex = Object.hasOwn(data1, key);
+    let data2Ex = Object.hasOwn(data2, key);
+    if (data1Ex && data2Ex) {
+      if (data1[key] === data2[key]) {
+        acc +=  `   ${key}: ${data1[key]}\n`;
+      } else {
+        acc += ` - ${key}: ${data1[key]}\n`;
+        acc += ` + ${key}: ${data2[key]}\n`;
+      } 
+    } else if (data1Ex) {
+      acc += ` - ${key}: ${data1[key]}\n`;
+    } else if (data2Ex) {
       acc += ` + ${key}: ${data2[key]}\n`;
-    } else if (!(data2.hasOwnProperty(key))) {
-      acc += ` - ${key}: ${data1[key]}\n`;
-    } else if (data1[key] !== data2[key]) {
-      if (!acc.includes(data1[key]) && !acc.includes(data2[key])) {
-      acc += ` - ${key}: ${data1[key]}\n`;
-      acc += ` + ${key}: ${data2[key]}\n`;   
-      }
-    } else {
-      if (!acc.includes(key)) {
-      acc +=  `   ${key}: ${data1[key]}\n`;  
-      }
     }
+
+
+    // if (data1Ex) {
+    //   acc += ` + ${key}: ${data2[key]}\n`;
+    // } else if (!(Object.hasOwn(data2, key))) {
+    //   acc += ` - ${key}: ${data1[key]}\n`;
+    // } else if (data1[key] !== data2[key]) {
+    //   if (!acc.includes(data1[key]) && !acc.includes(data2[key])) {
+    //   acc += ` - ${key}: ${data1[key]}\n`;
+    //   acc += ` + ${key}: ${data2[key]}\n`;   
+    //   }
+    // } else {
+    //   if (!acc.includes(key)) {
+    //   acc +=  `   ${key}: ${data1[key]}\n`;  
+    //   }
+    // }
+    // console.log(acc);
     return acc;
   }, '');
+  // console.log(result);
   return `{\n${result}}`;
 };
-
 
 export { getParsedData, compare };

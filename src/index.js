@@ -19,13 +19,13 @@ const gendiff = (filepath1, filepath2, format = 'utf-8') => {
 
     // const toString1 = stringify(data1);
     // const toString2 = stringify(data2);
-    // console.log(data1);
-    // console.log(data2);
+    //console.log(data1);
+    //console.log(data2);
 
     const compareData = compare(data1, data2);
 
     return compareData;
-}
+};
 
 export default gendiff;
 
@@ -45,7 +45,7 @@ export default gendiff;
 //     } DONE
 //     3) результат: const obj1 = { ...}, const obj2 = { ...} данные переведены из 
 //     json в понятный для js формат объекта и он может с ними работать
-const file1 = 'fixtures/file1.json';
-const file2 = 'fixtures/file2.json';
+// const file1 = 'fixtures/file1.json';
+// const file2 = 'fixtures/file2.json';
 
-gendiff(file1, file2);
+// gendiff(file1, file2);
