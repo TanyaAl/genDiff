@@ -34,24 +34,25 @@ const compare = (data1, data2) => {
   const entries1 = Object.keys(data1);
   const entries2 = Object.keys(data2);
   const unionEntries = _.sortBy(entries1.concat(entries2));
-  let result = '';
-  for (const key of unionEntries) {
+  const result = unionEntries.reduce((acc, key) => {
     if (!data1.hasOwnProperty(key)) {
-      result += ` + ${key}: ${data2[key]}\n`;
+      acc += ` + ${key}: ${data2[key]}\n`;
     } else if (!(data2.hasOwnProperty(key))) {
-      result += ` - ${key}: ${data1[key]}\n`;
+      acc += ` - ${key}: ${data1[key]}\n`;
     } else if (data1[key] !== data2[key]) {
-      if (!result.includes(data1[key]) && !result.includes(data2[key])) {
-      result += ` - ${key}: ${data1[key]}\n`;
-      result += ` + ${key}: ${data2[key]}\n`;   
+      if (!acc.includes(data1[key]) && !acc.includes(data2[key])) {
+      acc += ` - ${key}: ${data1[key]}\n`;
+      acc += ` + ${key}: ${data2[key]}\n`;   
       }
     } else {
-      if (!result.includes(key)) {
-      result +=  `   ${key}: ${data1[key]}\n`;  
+      if (!acc.includes(key)) {
+      acc +=  `   ${key}: ${data1[key]}\n`;  
       }
     }
-  }
+    return acc;
+  }, '');
   return `{\n${result}}`;
 };
+
 
 export { getParsedData, compare };
