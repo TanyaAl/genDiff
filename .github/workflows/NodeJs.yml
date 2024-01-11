@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
       - run: make install
       - run: make lint
-      - run: make test
+      - run: make jest
       - name: Code Climate Coverage Action
         uses: paambaati/codeclimate-action@v5.0.0
   
