@@ -45,7 +45,3 @@ export default gendiff;
 //     } DONE
 //     3) результат: const obj1 = { ...}, const obj2 = { ...} данные переведены из 
 //     json в понятный для js формат объекта и он может с ними работать
-// const file1 = 'fixtures/file1.json';
-// const file2 = 'fixtures/file2.json';
-
-// gendiff(file1, file2);

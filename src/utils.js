@@ -49,26 +49,8 @@ const compare = (data1, data2) => {
     } else if (data2Ex) {
       acc += ` + ${key}: ${data2[key]}\n`;
     }
-
-
-    // if (data1Ex) {
-    //   acc += ` + ${key}: ${data2[key]}\n`;
-    // } else if (!(Object.hasOwn(data2, key))) {
-    //   acc += ` - ${key}: ${data1[key]}\n`;
-    // } else if (data1[key] !== data2[key]) {
-    //   if (!acc.includes(data1[key]) && !acc.includes(data2[key])) {
-    //   acc += ` - ${key}: ${data1[key]}\n`;
-    //   acc += ` + ${key}: ${data2[key]}\n`;   
-    //   }
-    // } else {
-    //   if (!acc.includes(key)) {
-    //   acc +=  `   ${key}: ${data1[key]}\n`;  
-    //   }
-    // }
-    // console.log(acc);
     return acc;
   }, '');
-  // console.log(result);
   return `{\n${result}}`;
 };
 
