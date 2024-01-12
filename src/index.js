@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { cwd } from 'process';
 import path from 'path';
-import { getParsedData, compare } from './utils.js';
+import compare from './utils.js';
+import getParsedData from './parsers.js';
 
 const getPath = (file) => path.resolve(cwd(), file);
 const getExtname = (file) => path.extname(file);

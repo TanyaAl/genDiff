@@ -1,19 +1,5 @@
-import yaml from 'js-yaml';
 import _ from 'lodash';
 
-const getParsedData = (data, extname) => {
-  const extensionWithoutDot = extname.slice(1);
-    switch(extensionWithoutDot) {
-      case 'json':
-        return JSON.parse(data);
-      case 'yaml':
-        return yaml.load(data);
-        case 'yml':
-        return yaml.load(data);
-    default:
-      throw new Error(`Unsupported file extension: ${extname}`);
-    }
-};
 
 // const stringify = (data, replacer = ' ', count = 1) => {
 //   const iter = (currentValue, depth) => {
@@ -39,19 +25,19 @@ const compare = (data1, data2) => {
     let data2Ex = Object.hasOwn(data2, key);
     if (data1Ex && data2Ex) {
       if (data1[key] === data2[key]) {
-        acc +=  `   ${key}: ${data1[key]}\n`;
+        acc +=  `    ${key}: ${data1[key]}\n`;
       } else {
-        acc += ` - ${key}: ${data1[key]}\n`;
-        acc += ` + ${key}: ${data2[key]}\n`;
+        acc += `  - ${key}: ${data1[key]}\n`;
+        acc += `  + ${key}: ${data2[key]}\n`;
       } 
     } else if (data1Ex) {
-      acc += ` - ${key}: ${data1[key]}\n`;
+      acc += `  - ${key}: ${data1[key]}\n`;
     } else if (data2Ex) {
-      acc += ` + ${key}: ${data2[key]}\n`;
+      acc += `  + ${key}: ${data2[key]}\n`;
     }
     return acc;
   }, '');
   return `{\n${result}}`;
 };
 
-export { getParsedData, compare };
+export default compare;
