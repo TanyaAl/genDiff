@@ -7,9 +7,7 @@ const file2 = './__fixtures__/file2.json';
 test('compare two JSON with differences', () => {
   const rightOutput = readFileSync('./__fixtures__/testJSONdif.txt', 'utf-8');
   expect(gendiff(file1, file2)).toEqual(rightOutput);
+  const outputForSame = readFileSync('./__fixtures__/testJSONsame.txt', 'utf-8');
+  expect(gendiff(file1, file1)).toEqual(outputForSame);
 });
 
-test('compare two JSON without differences', () => {
-  const rightOutput = readFileSync('./__fixtures__/testJSONsame.txt', 'utf-8');
-  expect(gendiff(file1, file1)).toEqual(rightOutput);
-});
