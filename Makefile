@@ -10,5 +10,8 @@ test-coverage:
 	npm test -- --coverage 
 fix:
 	npx eslint . --fix
+test:
+	npm test
+
 
 
