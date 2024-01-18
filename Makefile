@@ -5,10 +5,10 @@ gendiff:
 publish:
 	npm publish --dry-run
 make lint:
-	npx eslint
+	npx eslint .
 test-coverage:
 	npm test -- --coverage 
-fix:
+make fix:
 	npx eslint . --fix
 test:
 	npm test
