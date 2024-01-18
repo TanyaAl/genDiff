@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
 const compare = (data1, data2) => {
-  // console.dir(data1, {depth: null});
-  // console.dir(data2, {depth: null});
+  console.dir(data1, {depth: null});
+  console.dir(data2, {depth: null});
   const entries1 = Object.keys(data1);
   const entries2 = Object.keys(data2);
   const unionEntries = _.sortBy([...new Set([...entries1, ...entries2])]);
