@@ -15,9 +15,8 @@ const checkType = (inputValue, nestedDepth = 1) => {
 
 const stringify = (data, replacer = ' ', count = 4) => {
   const iter = (currentValue, depth) => {
-    const forSpaces = count * depth;
-    const spaces = replacer.repeat(forSpaces);
-    const spacesBr = replacer.repeat(forSpaces - count);
+    const spaces = replacer.repeat(count * depth);
+    const spacesBr = replacer.repeat(count * depth - count);
     const toString = Object.values(currentValue).map((item) => {
       let result = '';
       switch (item.status) {
