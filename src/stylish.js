@@ -1,13 +1,12 @@
 import _ from 'lodash';
 
-
 const checkType = (inputValue, nestedDepth = 1) => {
   if (typeof inputValue === 'object' && inputValue !== null) {
   const keys = Object.keys(inputValue);
   const result = keys.map(key => {
     const resultValue = inputValue[key];
     const valueString = checkType(resultValue, nestedDepth + 1);
-    return `${' '.repeat(4 * (nestedDepth))}${key}: ${valueString}`;
+    return `${' '.repeat(4 * (nestedDepth + 1))}${key}: ${valueString}`;
   });
     return [`{`, ...result, `${' '.repeat(4 * (nestedDepth))}}`].join('\n');
 } 
@@ -16,9 +15,6 @@ const checkType = (inputValue, nestedDepth = 1) => {
 
 const stringify = (data, replacer = ' ', count = 4) => {
   const iter = (currentValue, depth) => {
-    if (!Array.isArray(currentValue)) {
-      return `${currentValue}`;
-    }
     const forSpaces = count * depth;
     const spaces = replacer.repeat(forSpaces);
     const spacesBr = replacer.repeat(forSpaces - count);
