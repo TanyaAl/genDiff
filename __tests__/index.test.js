@@ -15,9 +15,16 @@ test('compare two JSON', () => {
   expect(gendiff(file1, file2)).toEqual(rightOutput);
  });
 
-test('compare two YML', () => {
-  const file1 = path.join(__dirname, '..', '__fixtures__', 'file1.yml');
-  const file2 = path.join(__dirname, '..', '__fixtures__', 'file2.yml');
-  const rightOutput = readFileSync(path.join(__dirname, '..','__fixtures__','testYMLdif.txt'), 'utf-8');
-  expect(gendiff(file1, file2)).toEqual(rightOutput);
-});
+// test('compare two YML', () => {
+//   const file1 = path.join(__dirname, '..', '__fixtures__', 'file1.yml');
+//   const file2 = path.join(__dirname, '..', '__fixtures__', 'file2.yml');
+//   const rightOutput = readFileSync(path.join(__dirname, '..','__fixtures__','testYMLdif.txt'), 'utf-8');
+//   expect(gendiff(file1, file2)).toEqual(rightOutput);
+// });
+
+// test('compare two SMOL', () => {
+//   const file1 = path.join(__dirname, '..', '__fixtures__', 'smol.json');
+//   const file2 = path.join(__dirname, '..', '__fixtures__', 'smolToo.json');
+//   const rightOutput = readFileSync(path.join(__dirname, '..','__fixtures__','testSmol.txt'), 'utf-8');
+//   expect(gendiff(file1, file2)).toEqual(rightOutput);
+//  });

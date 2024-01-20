@@ -5,3 +5,4 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/65f87578306c2de93242/test_coverage)](https://codeclimate.com/github/TanyaAl/frontend-project-46/test_coverage)
 [![asciicast](https://asciinema.org/a/630835.svg)](https://asciinema.org/a/630835)
 [![asciicast](https://asciinema.org/a/631061.svg)](https://asciinema.org/a/631061)
+[![asciicast](https://asciinema.org/a/632355.svg)](https://asciinema.org/a/632355)

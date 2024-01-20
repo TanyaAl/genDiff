@@ -15,8 +15,8 @@ const checkType = (inputValue, nestedDepth = 1) => {
 
 const stringify = (data, replacer = ' ', count = 4) => {
   const iter = (currentValue, depth) => {
-    const spaces = replacer.repeat(count * depth);
-    const spacesBr = replacer.repeat(count * depth - count);
+    const spaces = replacer.repeat(count * depth - 2);
+    const spacesBr = replacer.repeat(count * (depth - 1));
     const toString = Object.values(currentValue).map((item) => {
       let result = '';
       switch (item.status) {
@@ -47,75 +47,75 @@ const stringify = (data, replacer = ' ', count = 4) => {
 export default stringify;
 
 
-// const data = [
-//   {
-//     key: 'common',
-//     nestedObj: [
-//       { key: 'follow', value: false, status: 'added' },
-//       { key: 'setting1', value: 'Value 1', status: 'unchanged' },
-//       { key: 'setting2', value: 200, status: 'deleted' },
-//       {
-//         key: 'setting3',
-//         oldValue: true,
-//         newValue: null,
-//         status: 'changed'
-//       },
-//       { key: 'setting4', value: 'blah blah', status: 'added' },
-//       { key: 'setting5', value: { key5: 'value5' }, status: 'added' },
-//       {
-//         key: 'setting6',
-//         nestedObj: [
-//           {
-//             key: 'doge',
-//             nestedObj: [
-//               {
-//                 key: 'wow',
-//                 oldValue: '',
-//                 newValue: 'so much',
-//                 status: 'changed'
-//               }
-//             ],
-//             status: 'nested'
-//           },
-//           { key: 'key', value: 'value', status: 'unchanged' },
-//           { key: 'ops', value: 'vops', status: 'added' }
-//         ],
-//         status: 'nested'
-//       }
-//     ],
-//     status: 'nested'
-//   },
-//   {
-//     key: 'group1',
-//     nestedObj: [
-//       {
-//         key: 'baz',
-//         oldValue: 'bas',
-//         newValue: 'bars',
-//         status: 'changed'
-//       },
-//       { key: 'foo', value: 'bar', status: 'unchanged' },
-//       {
-//         key: 'nest',
-//         oldValue: { key: 'value' },
-//         newValue: 'str',
-//         status: 'changed'
-//       }
-//     ],
-//     status: 'nested'
-//   },
-//   {
-//     key: 'group2',
-//     value: { abc: 12345, deep: { id: 45 } },
-//     status: 'deleted'
-//   },
-//   {
-//     key: 'group3',
-//     value: { deep: { id: { number: 45 } }, fee: 100500 },
-//     status: 'added'
-//   }
-// ];
-// const replacer = '*';
-// const count = 1;
-// stringify(data, replacer, count);
+const data = [
+  {
+    key: 'common',
+    nestedObj: [
+      { key: 'follow', value: false, status: 'added' },
+      { key: 'setting1', value: 'Value 1', status: 'unchanged' },
+      { key: 'setting2', value: 200, status: 'deleted' },
+      {
+        key: 'setting3',
+        oldValue: true,
+        newValue: null,
+        status: 'changed'
+      },
+      { key: 'setting4', value: 'blah blah', status: 'added' },
+      { key: 'setting5', value: { key5: 'value5' }, status: 'added' },
+      {
+        key: 'setting6',
+        nestedObj: [
+          {
+            key: 'doge',
+            nestedObj: [
+              {
+                key: 'wow',
+                oldValue: '',
+                newValue: 'so much',
+                status: 'changed'
+              }
+            ],
+            status: 'nested'
+          },
+          { key: 'key', value: 'value', status: 'unchanged' },
+          { key: 'ops', value: 'vops', status: 'added' }
+        ],
+        status: 'nested'
+      }
+    ],
+    status: 'nested'
+  },
+  {
+    key: 'group1',
+    nestedObj: [
+      {
+        key: 'baz',
+        oldValue: 'bas',
+        newValue: 'bars',
+        status: 'changed'
+      },
+      { key: 'foo', value: 'bar', status: 'unchanged' },
+      {
+        key: 'nest',
+        oldValue: { key: 'value' },
+        newValue: 'str',
+        status: 'changed'
+      }
+    ],
+    status: 'nested'
+  },
+  {
+    key: 'group2',
+    value: { abc: 12345, deep: { id: 45 } },
+    status: 'deleted'
+  },
+  {
+    key: 'group3',
+    value: { deep: { id: { number: 45 } }, fee: 100500 },
+    status: 'added'
+  }
+];
+const replacer = '*';
+const count = 4;
+stringify(data, replacer, count);
 
