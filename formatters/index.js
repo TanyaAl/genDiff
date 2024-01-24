@@ -1,5 +1,5 @@
-import plain from './plain';
-import stringify from './stylish';
+import plain from './plain.js';
+import stringify from './stylish.js';
 
 const getFormatter = (tree, formatName) => {
   switch (formatName) {

@@ -1,9 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { cwd } from 'process';
 import path from 'path';
-import compare from './makeAST';
-import getParsedData from './parsers';
-import getFormatter from '../formatters/index';
+import compare from './makeAST.js';
+import getParsedData from './parsers.js';
+import getFormatter from '../formatters/index.js';
 
 const getPath = (file) => path.resolve(cwd(), file);
 const getExtname = (file) => path.extname(file);
