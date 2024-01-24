@@ -18,26 +18,19 @@ const stringify = (data, replacer = ' ', count = 4) => {
     const spaces = replacer.repeat(count * depth - 2);
     const spacesBr = replacer.repeat(count * (depth - 1));
     const toString = Object.values(currentValue).map((item) => {
-      let result = '';
       switch (item.status) {
         case 'nested':
-          result += `${spaces}  ${item.key}: ${iter(item.nestedObj, depth + 1)}`;
-          break;
+          return `${spaces}  ${item.key}: ${iter(item.nestedObj, depth + 1)}`;
         case 'added':
-          result += `${spaces}+ ${item.key}: ${checkType(item.value, depth)}`;
-          break;
+          return `${spaces}+ ${item.key}: ${checkType(item.value, depth)}`;
         case 'changed':
-          result += `${spaces}- ${item.key}: ${checkType(item.oldValue, depth)}\n`;
-          result += `${spaces}+ ${item.key}: ${checkType(item.newValue, depth)}`;
-          break;
+          return `${spaces}- ${item.key}: ${checkType(item.oldValue, depth)}\n`+
+                 `${spaces}+ ${item.key}: ${checkType(item.newValue, depth)}`;
         case 'deleted':
-          result += `${spaces}- ${item.key}: ${checkType(item.value, depth)}`;
-          break;
+          return `${spaces}- ${item.key}: ${checkType(item.value, depth)}`;
         default:
-          result += `${spaces}  ${item.key}: ${checkType(item.value, depth)}`;
-          break;
+          return `${spaces}  ${item.key}: ${checkType(item.value, depth)}`;
       }
-     return result; 
     });
     return ['{', ...toString, `${spacesBr}}`].join('\n');
   };

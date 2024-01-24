@@ -12,29 +12,22 @@ const checkType = (inputValue) => {
     const plain = (data, depth, path = '') => {
         const toString = Object.values(data).map((item) => {
             const currentPath = path ? `${path}.${item.key}` : item.key;
-            let result = '';
             switch (item.status) {
             case 'nested':
-                result += `${plain(item.nestedObj, depth + 1, currentPath)}`;
-                break;
+                return `${plain(item.nestedObj, depth + 1, currentPath)}`;
             case 'added':
-                result += `Property '${currentPath}' was added with value: ${checkType(item.value, depth)}`;
-                break;
+                return `Property '${currentPath}' was added with value: ${checkType(item.value, depth)}`;
             case 'changed':
-                result += `Property '${currentPath}' was updated. From ${checkType(item.oldValue, depth)} to ${checkType(item.newValue, depth)}`;
-                break;
+                return `Property '${currentPath}' was updated. From ${checkType(item.oldValue, depth)} to ${checkType(item.newValue, depth)}`;
             case 'deleted':
-                result += `Property '${currentPath}' was removed`;
-                break;
+                return `Property '${currentPath}' was removed`;
             case 'unchanged':
-                result += [];
-                break;
+                return null;
             default:
                 break;
             }
-        return result; 
         });
-        return toString.filter((line) => line !== '').join('\n');
+        return toString.filter((line) => line !== null).join('\n');
         };
 
 export default plain;
