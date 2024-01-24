@@ -36,3 +36,17 @@ test('compare two YML/plain', () => {
   expect(gendiff(file1, file2, 'plain')).toEqual(rightOutput);
 });
 
+test('compare two JSON/json', () => {
+  const file1 = path.join(__dirname, '..', '__fixtures__', 'file1.json');
+  const file2 = path.join(__dirname, '..', '__fixtures__', 'file2.json');
+  const rightOutput = readFileSync(path.join(__dirname, '..','__fixtures__','testJSONdiff.txt'), 'utf-8');
+  expect(gendiff(file1, file2, 'json')).toEqual(rightOutput);
+ });
+
+test('compare two YML/json', () => {
+  const file1 = path.join(__dirname, '..', '__fixtures__', 'file1.yml');
+  const file2 = path.join(__dirname, '..', '__fixtures__', 'file2.yml');
+  const rightOutput = readFileSync(path.join(__dirname, '..','__fixtures__','testJSONdiff.txt'), 'utf-8');
+  expect(gendiff(file1, file2, 'json')).toEqual(rightOutput);
+});
+

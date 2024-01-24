@@ -7,6 +7,8 @@ const getFormatter = (tree, formatName) => {
       return stringify(tree);
     case 'plain':
       return plain(tree);
+    case 'json':
+        return JSON.stringify(tree);
     default:
       throw new Error(`Unsupported format: ${formatName}`);  
     }

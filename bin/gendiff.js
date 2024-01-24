@@ -10,8 +10,6 @@ program
   .helpOption('-h, --help', 'output usage information')
   .option('-f, --format <type>', 'output format', 'stylish')
   .action((filepath1, filepath2) => {
-    // console.log(option.format);
-    // const formatFunction = getFormatter(option.format);
     console.log(gendiff(filepath1, filepath2, program.opts().format));
   });
 program.parse();
