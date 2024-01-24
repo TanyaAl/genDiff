@@ -1,5 +1,5 @@
-import plain from './plain.js';
-import stringify from './stylish.js';
+import plain from './plain';
+import stringify from './stylish';
 
 const getFormatter = (tree, formatName) => {
   switch (formatName) {
@@ -8,10 +8,10 @@ const getFormatter = (tree, formatName) => {
     case 'plain':
       return plain(tree);
     case 'json':
-        return JSON.stringify(tree);
+      return JSON.stringify(tree);
     default:
-      throw new Error(`Unsupported format: ${formatName}`);  
-    }
+      throw new Error(`Unsupported format: ${formatName}`);
+  }
 };
 
 export default getFormatter;
