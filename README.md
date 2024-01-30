@@ -25,30 +25,31 @@ Difference Calculator is a command-line tool that compares two files in JSON or 
     ```bash
     make install
     ```
-    
+
 ## Usage 
 The utility supports .json, .yml(or .yaml) input formats and can generate reports in plain text, stylish, and JSON formats.
 File paths should be entered with specifying the file extension.
-## Stylish (use by default ) 
 
-    ```bash
-    gendiff path-to-your-file path-to-your-another-file
-    ```
+### Stylish (use by default ) 
+
+```bash
+gendiff path-to-your-file path-to-your-another-file
+```
 ### Plain
 
-    ```bash
-    gendiff -f plain path_to_your_file path_to_your_another_file
-    ``` 
+```bash
+gendiff -f plain path_to_your_file path_to_your_another_file
+``` 
 ### JSON
 
-    ```bash
-    gendiff -f json path_to_your_file path_to_your_another_file
-    ```
+```bash
+gendiff -f json path_to_your_file path_to_your_another_file
+```
 ## For more information:
 
-    ```bash
-    gendiff -h
-    ```
+```bash
+gendiff -h
+```
   
 
 [![asciicast](https://asciinema.org/a/630835.svg)](https://asciinema.org/a/630835)
