@@ -13,22 +13,26 @@ Difference Calculator is a command-line tool that compares two files in JSON or 
 
    ```bash
    git clone git@github.com:TanyaAl/genDiff.git
+   ```
 2. Navigate to the cloned directory:
 
     ```bash
     cd genDiff
+    ```
 3. Make sure Node.js is installed on your computer. 
    Install the utility by running the following command in your terminal:
 
     ```bash
     make install
+    ```
+    
 ## Usage 
 The utility supports .json, .yml(or .yaml) input formats and can generate reports in plain text, stylish, and JSON formats.
 File paths should be entered with specifying the file extension.
-### Stylish (use by default )
+## Stylish (use by default ) 
 
     ```bash
-    gendiff path_to_your_file path_to_your_another_file
+    gendiff path-to-your-file path-to-your-another-file
     ```
 ### Plain
 
