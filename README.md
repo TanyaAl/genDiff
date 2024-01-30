@@ -7,6 +7,13 @@
 # Difference Calculator
 
 Difference Calculator is a command-line tool that compares two files in JSON or YAML format and displays the differences in a selected format.
+## Installation
+1. Clone the repository from GitHub to your local machine:
+   ```bash
+   git clone https://github.com/TanyaAl/genDiff.git
+2. Navigate to the cloned directory:
+    ```bash
+    cd genDiff
 [![asciicast](https://asciinema.org/a/630835.svg)](https://asciinema.org/a/630835)
 [![asciicast](https://asciinema.org/a/631061.svg)](https://asciinema.org/a/631061)
 [![asciicast](https://asciinema.org/a/632355.svg)](https://asciinema.org/a/632355)

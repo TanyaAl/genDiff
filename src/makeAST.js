@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import _ from 'lodash';
 
 const compare = (data1, data2) => {
@@ -19,9 +18,12 @@ const compare = (data1, data2) => {
       const nestedObj = compare(data1[key], data2[key]);
       return { key, nestedObj, status: 'nested' };
     }
-    return {
-      key, oldValue: data1[key], newValue: data2[key], status: 'changed',
-    };
+    if (data1[key] !== data2[key]) {
+      return {
+        key, oldValue: data1[key], newValue: data2[key], status: 'changed',
+      };
+    }
+    return null;
   });
   return result;
 };
