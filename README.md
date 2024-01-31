@@ -25,6 +25,8 @@ Difference Calculator is a command-line tool that compares two files in JSON or 
     ```bash
     make install
     ```
+    ```bash
+    npm link
 
 ## Usage 
 The utility supports .json, .yml(or .yaml) input formats and can generate reports in plain text, stylish, and JSON formats.
