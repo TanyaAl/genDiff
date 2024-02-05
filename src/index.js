@@ -3,7 +3,7 @@ import { cwd } from 'process';
 import path from 'path';
 import compare from './makeAST.js';
 import getParsedData from './parsers.js';
-import getFormatter from '../formatters/index.js';
+import getFormatter from './formatters/index.js';
 
 const getPath = (file) => path.resolve(cwd(), file);
 const getExtname = (file) => path.extname(file);
