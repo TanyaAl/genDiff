@@ -25,7 +25,6 @@ const compare = (data1, data2) => {
     }
     return null;
   });
-  // return result;
 };
 
 export default compare;
